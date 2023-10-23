@@ -1,4 +1,3 @@
-import React from 'react';
 
 function Square(props) {
     const {black, children} = props;
