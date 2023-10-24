@@ -1,12 +1,11 @@
 import './App.css'
-
-import Board from './components/Board';
+import Game from './components/Game';
 
 function App() {
 
   return (
     <>
-      <Board knightPosition={[7,4]} />
+      <Game />
     </>
   )
 }

@@ -2,7 +2,7 @@ import Square from './Square';
 import Knight from './Knight';
 
 function Board(props) {
-    const {knightPosition} = props;
+    const {knightPosition, moveKnight} = props;
 
     const renderSquare = (i, [knightX, knightY]) => {
         const x = i % 8;
@@ -12,7 +12,7 @@ function Board(props) {
         const piece = isKnightHere ? <Knight /> : null;
 
         return (
-            <div key={i} style={{ width: '12.5%', height: '12.5%' }}>
+            <div onClick={() => moveKnight(x, y)} key={i} style={{ width: '12.5%', height: '12.5%' }}>
                 <Square black={black}>{piece}</Square>
             </div>
         );
