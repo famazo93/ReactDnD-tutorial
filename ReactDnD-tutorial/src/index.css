@@ -7,6 +7,8 @@
 }
 
 .character {
-  font-size: 10rem;
+  font-size: 8rem;
   color: red;
+  line-height: 8rem;
+  text-align: center;
 }

@@ -19,8 +19,8 @@ function BoardSquare(props) {
               ref={drop}
               style={{
                 position: 'relative',
-                width: '100%',
-                height: '100%',
+                width: '12.5vw',
+                height: '12.5vw',
               }}>
                 <Square black={black}>{children}</Square>
                 {isOver && (
@@ -29,8 +29,8 @@ function BoardSquare(props) {
                         position: 'absolute',
                         top: 0,
                         left: 0,
-                        height: '100%',
-                        width: '100%',
+                        height: '12.5vw',
+                        width: '12.5vw',
                         zIndex: 1,
                         opacity: 0.5,
                         backgroundColor: 'yellow'

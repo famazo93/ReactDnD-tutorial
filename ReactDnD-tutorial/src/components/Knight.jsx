@@ -10,11 +10,13 @@ function Knight() {
     }))
     return (
         <div ref={drag}
-        style={{
+          style={{
             opacity: isDragging ? 0.5 : 1,
-            cursor: 'move'
-        }}
-        className='character'>
+            cursor: 'move',
+            width: '100%',
+            height: '100%',
+          }}
+          className='character'>
            ♘ 
         </div>
     )
