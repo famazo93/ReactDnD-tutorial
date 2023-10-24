@@ -1,8 +1,15 @@
-import Square from './Square';
+import BoardSquare from './BoardSquare';
 import Knight from './Knight';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { useEffect } from 'react';
 
 function Board(props) {
-    const {knightPosition, moveKnight} = props;
+    const { knightPosition, moveKnight } = props;
+
+    useEffect(() => {
+        console.log('Board rerendering');
+    })
 
     const renderSquare = (i, [knightX, knightY]) => {
         const x = i % 8;
@@ -12,8 +19,8 @@ function Board(props) {
         const piece = isKnightHere ? <Knight /> : null;
 
         return (
-            <div onClick={() => moveKnight(x, y)} key={i} style={{ width: '12.5%', height: '12.5%' }}>
-                <Square black={black}>{piece}</Square>
+            <div key={i} style={{ width: '12.5%', height: '12.5%' }}>
+                <BoardSquare moveKnight={moveKnight} x={x} y={y} black={black}>{piece}</BoardSquare>
             </div>
         );
     }
@@ -24,15 +31,17 @@ function Board(props) {
     }
 
     return (
-        <div
-        style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexWrap: 'wrap'
-        }}>
-            {squares}
-        </div>
+        <DndProvider backend={HTML5Backend}>
+            <div
+            style={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexWrap: 'wrap'
+            }}>
+                {squares}
+            </div>
+        </DndProvider>
     )
 }
 
